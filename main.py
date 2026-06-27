@@ -391,4 +391,4 @@ def get_balance(uid):
 
 
 def add_balance(uid, amt):
-    run("UPDA
+    run("UPDATE")
