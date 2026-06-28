@@ -32,7 +32,7 @@ _lock_fh.flush()
 print("ðŸ”’ Lock à¦¨à§‡à¦“à¦¯à¦¼à¦¾ à¦¹à¦¯à¦¼à§‡à¦›à§‡ â€” à¦à¦•à¦Ÿà¦¿à¦®à¦¾à¦¤à§à¦° instance à¦šà¦²à¦›à§‡")
 time.sleep(3)
 
-bot = telebot.TeleBot("8600286616:AAE2TeKzRhLfpXyeHmijIriqUnq1vclJevI", threaded=True, num_threads=8), threaded=True, num_threads=8)
+bot = telebot.TeleBot("8600286616:AAE2TeKzRhLfpXyeHmijIriqUnq1vclJevI", threaded=True, num_threads=8)
 user_states = {}
 state_lock = threading.Lock()
 
