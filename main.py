@@ -1,3 +1,17 @@
+from flask import Flask
+from threading import Thread
+
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot is alive!"
+
+def run():
+    app.run(host='0.0.0.0', port=10000)
+
+# ব্যাকগ্রাউন্ডে ওয়েব সার্ভার চালু করার জন্য
+Thread(target=run).start()
 """
 Supreme Gmail Bot â€” v4.0
 Features: Anti-detect 1.0 / 2.0 / 3.0, Admin 2FA (TOTP),
