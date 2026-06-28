@@ -1,5 +1,6 @@
 from flask import Flask
 from threading import Thread
+import os
 
 app = Flask('')
 
@@ -8,15 +9,16 @@ def home():
     return "Bot is alive!"
 
 def run():
-    app.run(host='0.0.0.0', port=10000)
+    # রেন্ডার যদি পোর্ট দেয় সেটা নেবে, না হলে ১০০০০ নেবে
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
 
-# ব্যাকগ্রাউন্ডে ওয়েব সার্ভার চালু করার জন্য
-Thread(target=run).start()
-"""
-Supreme Gmail Bot â€” v4.0
-Features: Anti-detect 1.0 / 2.0 / 3.0, Admin 2FA (TOTP),
-          Multi-language BN/EN, USDT, Bot ON/OFF,
-          24/7 HTTP health server, Crash-proof WAL SQLite
+# থ্রেড দিয়ে ব্যাকগ্রাউন্ডে চালু করা হচ্ছে যাতে মেইন কোড না আটকায়
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
+
+keep_alive()
 """
 
 import sqlite3, os, re, fcntl, random, string, time, threading, imaplib, ssl, smtplib
